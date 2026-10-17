@@ -100,7 +100,7 @@ The count stayed at 2 for the rest of the window. The chart legend shows a peak 
 
 ## Results
 
-- The scale set deployed successfully in Central US, with 2 instances running across zones 1, 2, and 3.
+- The scale set deployed successfully in Central US with availability zones 1, 2, and 3 configured; the captured overview showed two instances running.
 - The autoscale limits (2 / 3 / 2) and CPU rules (above 75% out, below 25% in, 10-minute window, 5-minute cooldown) were confirmed both before and after deployment.
 - The run history shows the scale set grew to its maximum of 3 instances and returned to its minimum of 2 about 9.5 minutes later. Both events succeeded.
 - Afterward, average CPU was below the scale-in threshold (18.04% in the scale-in rule chart), but the count stayed at 2 because the scale set was already at its minimum.
@@ -112,7 +112,7 @@ Cleanup is not documented. No screenshot shows the scale set or its resource gro
 ## Lessons Learned and Limitations
 
 - Checked the run history directly instead of assuming the rules worked just because they were configured.
-- The cause of the scale-out isn't shown. It happened about 4 minutes after deployment started, and no screenshot shows CPU above 75%. The CPU charts only cover about 8:28 to 8:38 AM, after the events, when CPU stayed around 35% or lower. Instance startup load is a possible cause, but it wasn't verified, and no load test was run.
+- The cause of the scale-out isn't shown. It happened about 4 minutes after deployment started, and no screenshot shows CPU above 75%. The CPU charts only cover about 8:28 to 8:38 AM, after the events, when CPU stayed around 35% or lower. Instance startup load is a possible cause, but it wasn't verified. No deliberate load test is documented.
 - The scale-in fits the 25% rule and the 5-minute cooldown, but no screenshot shows the CPU reading at 08:24.
 - The minimum instance count works as a floor. Low CPU after the scale-in did not drop the count below 2.
 - This lab tested CPU-based autoscale on a small range only. Application load, load balancing, health probes, automatic repairs, and scheduled or predictive scaling were not tested.
