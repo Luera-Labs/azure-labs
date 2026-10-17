@@ -2,7 +2,7 @@
 
 Date: October 17, 2026
 
-Status: Completed. Deployment, autoscale configuration, and one observed scale-out and scale-in cycle documented below. Cleanup not documented.
+Status: Completed. Deployment, autoscale configuration, and one observed scale-out and scale-in cycle documented below. Scale set deletion documented; separate-resource cleanup not confirmed.
 
 ## Objective
 
@@ -107,7 +107,11 @@ The count stayed at 2 for the rest of the window. The chart legend shows a peak 
 
 ## Cleanup
 
-Cleanup is not documented. No screenshot shows the scale set or its resource group being deleted.
+Deleted `vmss-lab-01` after completing the lab. The subsequent Virtual Machine Scale Sets view displayed "No virtual machine scale sets to display," with subscription, resource group, and location filters set to all within the portal's current account scope.
+
+![VM Scale Sets view after deletion](screenshots/14-vmss-deletion-confirmed.jpg)
+
+This confirms the scale set was no longer listed in that scope. It does not establish deletion of every related resource. Separate networking resources and resources from earlier labs remained in the resource group during the cleanup review; their deletion has not been confirmed. The resource group was not documented as deleted.
 
 ## Lessons Learned and Limitations
 
